@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const request = require("request");
 const csv = require("csv-parser");
-const fs = require("fs");
+const fs = require("fs-extra");
 const XLSX = require("xlsx");
 // const { JSON } = require("express");
 const axios = require("axios");
+
 
 router.get("/", async (req, res, next) => {
   // fs.readFileSync("extractor-config.json", "utf8", (err, data) => {
@@ -18,9 +19,12 @@ router.get("/", async (req, res, next) => {
 
   // const configData = JSON.parse(jsonData);
 
-  fs.readFile('./extractor-config.json', (err, data) => {
-    if (err) throw err;
+  fs.readFile('extractor-config.json')
+  .then(data => {
     console.log(data);
+  })
+  .catch(err => {
+    console.error(err);
   });
 
  
