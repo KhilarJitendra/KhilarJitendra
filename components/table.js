@@ -31,8 +31,8 @@ const TableExample = () => {
           {data.map((cell) => {
             return (
               <tr>
-                <td data-label="Story">{cell.Story}</td>
-                <td data-label="Owner">{cell.Owner}</td>
+                <td data-label="Story" key={cell.Story}>{cell.Story}</td>
+                <td data-label="Owner" key={cell.Owner}>{cell.Owner}</td>
               </tr>
             );
           })}
