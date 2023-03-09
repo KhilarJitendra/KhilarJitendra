@@ -8,50 +8,52 @@ const XLSX = require("xlsx");
 const axios = require("axios");
 
 router.get("/", async (req, res, next) => {
-  fs.readFile("extractor-config.json", "utf8", (err, data) => {
+  // fs.readFileSync("extractor-config.json", "utf8", (err, data) => {
 
-    
+  // });
+
+  const jsonData = fs.readFileSync('extractor-config.json', 'utf8');
 
 
-    const configData = JSON.parse(data);
 
-    // console.log(configData);
+  const configData = JSON.parse(jsonData);
 
-    // Read the Google Sheet
+  // console.log(configData);
 
-    console.log('configData..',configData)
+  // Read the Google Sheet
 
-    const axios = require("axios");
-    const XLSX = require("xlsx");
-    // const url = configData.sheets[0].url;
-    // const owner = configData.assignedTo;
+  console.log('configData...',configData)
 
-    axios
-      .get("https://docs.google.com/spreadsheets/d/e/2PACX-1vTll1DTciIbS7lsdkjYmgrFnhnD4AJlmtq8u9AZOOAJDWdHzpkdVVbMRXQPNVGXvyFvzMNvv1C7O5JO/pubhtml", {
-        responseType: "arraybuffer",
-      })
-      .then((response) => {
-        const workbook = XLSX.read(response.data, { type: "buffer" });
-        const sheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[sheetName];
-        const data = XLSX.utils.sheet_to_json(worksheet);
+  const axios = require("axios");
+  const XLSX = require("xlsx");
+  // const url = configData.sheets[0].url;
+  // const owner = configData.assignedTo;
 
-        let actualData = [];
+  axios
+    .get("https://docs.google.com/spreadsheets/d/e/2PACX-1vTll1DTciIbS7lsdkjYmgrFnhnD4AJlmtq8u9AZOOAJDWdHzpkdVVbMRXQPNVGXvyFvzMNvv1C7O5JO/pubhtml", {
+      responseType: "arraybuffer",
+    })
+    .then((response) => {
+      const workbook = XLSX.read(response.data, { type: "buffer" });
+      const sheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[sheetName];
+      const data = XLSX.utils.sheet_to_json(worksheet);
 
-        data.forEach((item) => {
-          if (item.Owner == "Jitendra") {
-            actualData.push(item);
-          }
-        });
+      let actualData = [];
 
-        return res.json(actualData);
-
-        
-      })
-      .catch((error) => {
-        console.error(error);
+      data.forEach((item) => {
+        if (item.Owner == "Jitendra") {
+          actualData.push(item);
+        }
       });
-  });
+
+      return res.json(actualData);
+
+      
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 });
 
 module.exports = router;
