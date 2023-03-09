@@ -29,7 +29,7 @@ router.get("/", async (req, res, next) => {
     console.log(data);
     // Process data as needed
 
-    console.log('Actual Data....',data)
+    console.log('Actual Data...',data)
 
     return res.json(data);
 
