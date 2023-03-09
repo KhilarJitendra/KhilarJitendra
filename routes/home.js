@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
   let url = "";
   let owner = "";
 
-  fs.readFile("extractor-config.json")
+  fs.readFileSync("extractor-config.json")
     .then((data) => {
       console.log("bufferdata......", JSON.parse(data));
       const parseddata = JSON.parse(data);
