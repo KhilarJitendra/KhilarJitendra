@@ -41,7 +41,7 @@ router.get("/", async (req, res, next) => {
       let actualData = [];
 
       data.forEach((item) => {
-        if (item.Owner == owner) {
+        if (item.Owner == "Jitendra") {
           actualData.push(item);
         }
       });
