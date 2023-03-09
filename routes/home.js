@@ -11,11 +11,11 @@ const jsonfile = require("jsonfile");
 const file = "extractor-config.json";
 
 router.get("/", async (req, res, next) => {
-  console.log("bufferdata......", JSON.parse(data));
-  const parseddata = JSON.parse(data);
-  url = parseddata.sheets[0].url;
-  owner = parseddata.assignedTo;
-  console.log(parseddata);
+  // console.log("bufferdata......", JSON.parse(data));
+  // const parseddata = JSON.parse(data);
+  // url = parseddata.sheets[0].url;
+  // owner = parseddata.assignedTo;
+  // console.log(parseddata);
   axios
     .get(
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTll1DTciIbS7lsdkjYmgrFnhnD4AJlmtq8u9AZOOAJDWdHzpkdVVbMRXQPNVGXvyFvzMNvv1C7O5JO/pubhtml",
