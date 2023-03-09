@@ -25,25 +25,12 @@ router.get("/", async (req, res, next) => {
     console.log('bufferdata......', JSON.parse(data));
     const parseddata = JSON.parse(data);
     url = parseddata.sheets[0].url;
-    owner = parseddata.assignedTo
+    owner = parseddata.assignedTo;
     console.log(owner)
-  })
-  .catch(err => {
-    console.error(err);
-  });
-
- 
-
-  // Read the Google Sheet
-
-  // console.log('configData..',jsonData)
 
 
-  // const url = configData.sheets[0].url;
-  // const owner = configData.assignedTo;
-
-  axios
-    .get(url, {
+    axios
+    .get("https://docs.google.com/spreadsheets/d/e/2PACX-1vTll1DTciIbS7lsdkjYmgrFnhnD4AJlmtq8u9AZOOAJDWdHzpkdVVbMRXQPNVGXvyFvzMNvv1C7O5JO/pubhtml", {
       responseType: "arraybuffer",
     })
     .then((response) => {
@@ -67,6 +54,25 @@ router.get("/", async (req, res, next) => {
     .catch((error) => {
       console.error(error);
     });
+
+
+
+  })
+  .catch(err => {
+    console.error(err);
+  });
+
+ 
+
+  // Read the Google Sheet
+
+  // console.log('configData..',jsonData)
+
+
+  // const url = configData.sheets[0].url;
+  // const owner = configData.assignedTo;
+
+ 
 });
 
 module.exports = router;
