@@ -6,7 +6,7 @@ const TableExample = () => {
   useEffect(() => {
     console.log("Started...");
     async function fetchData() {
-      const res = await fetch("http://localhost:3001/data");
+      const res = await fetch("http://localhost:3000/data");
       const json = await res.json();
       console.log("actual data...", json);
       setData(json);
