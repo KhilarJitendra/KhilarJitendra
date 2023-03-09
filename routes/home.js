@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
     
 
 
-    const configData = JSON.parse(data);
+    const configData = json.parse(data);
 
     // Read the Google Sheet
 
