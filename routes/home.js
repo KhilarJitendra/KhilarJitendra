@@ -4,7 +4,7 @@ const request = require("request");
 const csv = require("csv-parser");
 const fs = require("fs-extra");
 const XLSX = require("xlsx");
-// const { JSON } = require("express");
+const { json } = require("express");
 const axios = require("axios");
 
 
@@ -13,8 +13,8 @@ router.get("/", async (req, res, next) => {
   
 
   fs.readFile('./extractor-config.json','utf-8',(err,data) => {
-    const parseddata = JSON.parse(data);
-    console.log('file,,',parseddata);
+    const parseddata = JSON.parse(data)
+    console.log('file,,.',parseddata.assignedTo);
   })
 
 
