@@ -29,23 +29,8 @@ router.get("/", async (req, res, next) => {
     url = parseddata.sheets[0].url;
     owner = parseddata.assignedTo
     console.log(parseddata)
-  })
-  .catch(err => {
-    console.error(err);
-  });
 
- 
-
-  // Read the Google Sheet
-
-  // console.log('configData..',jsonData)
-
-  const axios = require("axios");
-  const XLSX = require("xlsx");
-  // const url = configData.sheets[0].url;
-  // const owner = configData.assignedTo;
-
-  axios
+    axios
     .get("https://docs.google.com/spreadsheets/d/e/2PACX-1vTll1DTciIbS7lsdkjYmgrFnhnD4AJlmtq8u9AZOOAJDWdHzpkdVVbMRXQPNVGXvyFvzMNvv1C7O5JO/pubhtml", {
       responseType: "arraybuffer",
     })
@@ -70,6 +55,26 @@ router.get("/", async (req, res, next) => {
     .catch((error) => {
       console.error(error);
     });
+
+
+
+  })
+  .catch(err => {
+    console.error(err);
+  });
+
+ 
+
+  // Read the Google Sheet
+
+  // console.log('configData..',jsonData)
+
+  const axios = require("axios");
+  const XLSX = require("xlsx");
+  // const url = configData.sheets[0].url;
+  // const owner = configData.assignedTo;
+
+
 });
 
 module.exports = router;
