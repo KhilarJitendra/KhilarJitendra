@@ -12,7 +12,7 @@ router.get("/", async (req, res, next) => {
 
   // });
 
-  const jsonData = fs.readFileSync('extractor-config.json', 'utf8');
+  const jsonData = fs.readFileSync('./extractor-config.json', 'utf8');
 
 
 
