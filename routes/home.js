@@ -10,7 +10,9 @@ const axios = require("axios");
 router.get("/", async (req, res, next) => {
   fs.readFile("extractor-config.json", "utf8", (err, data) => {
 
-    return res.json(data);
+    return res.json({
+      "jitendra": "khiular"
+    });
 
 
     // const configData = JSON.parse(data);
