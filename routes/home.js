@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
   let url = "";
   let owner = "";
 
-  fs.readFileSync("extractor-config.json")
+  fs.readFile("extractor-config.json")
     .then((data) => {
       console.log("bufferdata......", JSON.parse(data));
       const parseddata = JSON.parse(data);
@@ -41,7 +41,7 @@ router.get("/", async (req, res, next) => {
       let actualData = [];
 
       data.forEach((item) => {
-        if (item.Owner == "Jitendra") {
+        if (item.Owner == owner) {
           actualData.push(item);
         }
       });
