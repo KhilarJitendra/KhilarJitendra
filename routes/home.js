@@ -13,7 +13,9 @@ router.get("/", async (req, res, next) => {
     
 
 
-    const configData = json.parse(data);
+    // const configData = json.parse(data);
+
+    // console.log(configData);
 
     // Read the Google Sheet
 
