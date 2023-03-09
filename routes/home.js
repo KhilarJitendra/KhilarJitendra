@@ -26,7 +26,11 @@ router.get("/", async (req, res, next) => {
     const parseddata = JSON.parse(data);
     url = parseddata.sheets[0].url;
     owner = parseddata.assignedTo;
-    console.log(owner)
+    console.log(owner);
+
+    return res.json({
+      "jitendra": "123123"
+    });
 
 
     // axios
