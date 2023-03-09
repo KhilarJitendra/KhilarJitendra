@@ -12,17 +12,17 @@ router.get("/", async (req, res, next) => {
 
   // });
 
-  const jsonData = fs.readFileSync('./extractor-config.json', 'utf8');
+  const jsonData = JSON.parse(fs.readFileSync('./extractor-config.json'));
+  
 
 
+  // const configData = JSON.parse(jsonData);
 
-  const configData = JSON.parse(jsonData);
-
-  // console.log(configData);
+ 
 
   // Read the Google Sheet
 
-  console.log('configData...',configData)
+  console.log('configData..',jsonData)
 
   const axios = require("axios");
   const XLSX = require("xlsx");
