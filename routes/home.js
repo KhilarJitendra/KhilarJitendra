@@ -21,34 +21,34 @@ router.get("/", async (req, res, next) => {
 
     const axios = require("axios");
     const XLSX = require("xlsx");
-    const url = configData.sheets[0].url;
-    const owner = configData.assignedTo;
+    // const url = configData.sheets[0].url;
+    // const owner = configData.assignedTo;
 
-    // axios
-    //   .get(url, {
-    //     responseType: "arraybuffer",
-    //   })
-    //   .then((response) => {
-    //     const workbook = XLSX.read(response.data, { type: "buffer" });
-    //     const sheetName = workbook.SheetNames[0];
-    //     const worksheet = workbook.Sheets[sheetName];
-    //     const data = XLSX.utils.sheet_to_json(worksheet);
+    axios
+      .get("https://docs.google.com/spreadsheets/d/e/2PACX-1vTll1DTciIbS7lsdkjYmgrFnhnD4AJlmtq8u9AZOOAJDWdHzpkdVVbMRXQPNVGXvyFvzMNvv1C7O5JO/pubhtml", {
+        responseType: "arraybuffer",
+      })
+      .then((response) => {
+        const workbook = XLSX.read(response.data, { type: "buffer" });
+        const sheetName = workbook.SheetNames[0];
+        const worksheet = workbook.Sheets[sheetName];
+        const data = XLSX.utils.sheet_to_json(worksheet);
 
-    //     let actualData = [];
+        let actualData = [];
 
-    //     data.forEach((item) => {
-    //       if (item.Owner == owner) {
-    //         actualData.push(item);
-    //       }
-    //     });
+        data.forEach((item) => {
+          if (item.Owner == "Jitendra") {
+            actualData.push(item);
+          }
+        });
 
-    //     return res.json(actualData);
+        return res.json(actualData);
 
         
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   });
 });
 
