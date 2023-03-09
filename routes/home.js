@@ -4,7 +4,7 @@ const request = require("request");
 const csv = require("csv-parser");
 const fs = require("fs");
 const XLSX = require("xlsx");
-const { json } = require("express");
+// const { JSON } = require("express");
 const axios = require("axios");
 
 router.get("/", async (req, res, next) => {
@@ -13,11 +13,13 @@ router.get("/", async (req, res, next) => {
     
 
 
-    // const configData = json.parse(data);
+    const configData = JSON.parse(data);
 
     // console.log(configData);
 
     // Read the Google Sheet
+
+    console.log('configData..',configData)
 
     const axios = require("axios");
     const XLSX = require("xlsx");
