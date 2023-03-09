@@ -18,7 +18,7 @@ router.get("/", async (req, res, next) => {
 
   // const configData = JSON.parse(jsonData);
 
-  fs.readFile('extractor-config.json', (err, data) => {
+  fs.readFile('./extractor-config.json', (err, data) => {
     if (err) throw err;
     console.log(data);
   });
