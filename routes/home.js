@@ -52,12 +52,25 @@
 
 const express = require("express");
 const router = express.Router();
+const fs = require("fs");
 
 router.get("/", async (req, res, next) => {
-  return res.json({
-    title: "Express Testing",
-    message: "The app is working properly!",
+
+
+  fs.readFile("extractor-config.json", "utf8", (err, data) => {
+
+          const configData = JSON.parse(data);
+          return res.json(configData)
+
   });
+
+
+
+
+  // return res.json({
+  //   title: "Express Testing",
+  //   message: "The app is working properly!",
+  // });
 });
 
 module.exports = router;
