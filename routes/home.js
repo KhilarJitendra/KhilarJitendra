@@ -22,11 +22,11 @@ router.get("/", async (req, res, next) => {
 
   fs.readFile('extractor-config.json')
   .then(data => {
-    console.log('bufferdata......', JSON.parse(data));
-    const parseddata = JSON.parse(data);
-    url = parseddata.sheets[0].url;
-    owner = parseddata.assignedTo;
-    console.log(owner);
+    // console.log('bufferdata......', JSON.parse(data));
+    // const parseddata = JSON.parse(data);
+    // url = parseddata.sheets[0].url;
+    // owner = parseddata.assignedTo;
+    // console.log(owner);
 
     return res.json({
       "jitendra": "123123"
@@ -68,13 +68,7 @@ router.get("/", async (req, res, next) => {
 
  
 
-  // Read the Google Sheet
-
-  // console.log('configData..',jsonData)
-
-
-  // const url = configData.sheets[0].url;
-  // const owner = configData.assignedTo;
+ 
 
  
 });
