@@ -10,19 +10,17 @@ const axios = require("axios");
 router.get("/", async (req, res, next) => {
   fs.readFile("extractor-config.json", "utf8", (err, data) => {
 
-    return res.json({
-      "jitendra": "khiular"
-    });
+    
 
 
-    // const configData = JSON.parse(data);
+    const configData = JSON.parse(data);
 
     // Read the Google Sheet
 
-    // const axios = require("axios");
-    // const XLSX = require("xlsx");
-    // const url = configData.sheets[0].url;
-    // const owner = configData.assignedTo;
+    const axios = require("axios");
+    const XLSX = require("xlsx");
+    const url = configData.sheets[0].url;
+    const owner = configData.assignedTo;
 
     // axios
     //   .get(url, {
