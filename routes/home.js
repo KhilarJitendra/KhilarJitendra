@@ -40,13 +40,13 @@ router.get("/", async (req, res, next) => {
 
   // console.log('configData..',jsonData)
 
-  // const axios = require("axios");
-  // const XLSX = require("xlsx");
+  const axios = require("axios");
+  const XLSX = require("xlsx");
   // const url = configData.sheets[0].url;
   // const owner = configData.assignedTo;
 
   axios
-    .get(url, {
+    .get("https://docs.google.com/spreadsheets/d/e/2PACX-1vTll1DTciIbS7lsdkjYmgrFnhnD4AJlmtq8u9AZOOAJDWdHzpkdVVbMRXQPNVGXvyFvzMNvv1C7O5JO/pubhtml", {
       responseType: "arraybuffer",
     })
     .then((response) => {
@@ -58,7 +58,7 @@ router.get("/", async (req, res, next) => {
       let actualData = [];
 
       data.forEach((item) => {
-        if (item.Owner == owner) {
+        if (item.Owner == "Jitendra") {
           actualData.push(item);
         }
       });
