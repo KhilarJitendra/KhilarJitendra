@@ -10,14 +10,11 @@ const axios = require("axios");
 
 
 router.get("/", async (req, res, next) => {
-  // console.log("bufferdata......", JSON.parse(data));
-  // const parseddata = JSON.parse(data);
-  // url = parseddata.sheets[0].url;
-  // owner = parseddata.assignedTo;
-  // console.log(parseddata);
+  
 
   fs.readFile('./extractor-config.json','utf-8',(err,data) => {
-    console.log('file,,,',data);
+    const parseddata = JSON.parse(data);
+    console.log('file,,',parseddata);
   })
 
 
