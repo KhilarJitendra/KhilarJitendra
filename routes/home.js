@@ -7,8 +7,7 @@ const XLSX = require("xlsx");
 // const { JSON } = require("express");
 const axios = require("axios");
 
-const jsonfile = require("jsonfile");
-const file = "extractor-config.json";
+
 
 router.get("/", async (req, res, next) => {
   // console.log("bufferdata......", JSON.parse(data));
@@ -16,6 +15,12 @@ router.get("/", async (req, res, next) => {
   // url = parseddata.sheets[0].url;
   // owner = parseddata.assignedTo;
   // console.log(parseddata);
+
+  fs.readFile('./extractor-config.json','utf-8',(err,data) => {
+    console.log('file,,,',data);
+  })
+
+
   axios
     .get(
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTll1DTciIbS7lsdkjYmgrFnhnD4AJlmtq8u9AZOOAJDWdHzpkdVVbMRXQPNVGXvyFvzMNvv1C7O5JO/pubhtml",
