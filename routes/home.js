@@ -10,11 +10,13 @@ const axios = require("axios");
 
 
 
+
+
 router.get("/", async (req, res, next) => {
   
 
 
-  const jsondata = JSON.parse(fs.readFileSync('./config.json'));
+  const jsondata = JSON.parse(fs.readFileSync('../config.json'));
   console.log('JSON DATA',jsondata.assignedTo)
 
   // const workbook = await XLSX.readFile('https://docs.google.com/spreadsheets/d/14N2Ob5-fMHDWbU9p26mpBVuVupV2WnCGsrAC5pnWxuY/gviz/tq?tqx=out:csv&sheet=Task%20List');
