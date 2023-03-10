@@ -13,8 +13,8 @@ router.get("/", async (req, res, next) => {
   
 
   fs.readFile('./extractor-config.json','utf-8',(err,data) => {
-    const parseddata = JSON.parse(data)
-    console.log('file,,.',parseddata.assignedTo);
+    const parseddata = json(data)
+    console.log('file.',parseddata.assignedTo);
   })
 
 
