@@ -12,14 +12,24 @@ const axios = require("axios");
 
 router.get("/", async (req, res, next) => {
   
-  let owner = '';
 
-  fs.readFile('./config.json','utf-8',(err,data) => {
-    const parseddata = JSON.parse(data);
-    owner = parseddata.assignedTo;
-    if(err) throw err;
-    console.log(owner);
-  })
+
+  const jsondata = JSON.parse(fs.readFileSync('./config.json'));
+  console.log('JSON DATA',jsondata.assignedTo)
+
+  // const workbook = await XLSX.readFile('https://docs.google.com/spreadsheets/d/14N2Ob5-fMHDWbU9p26mpBVuVupV2WnCGsrAC5pnWxuY/gviz/tq?tqx=out:csv&sheet=Task%20List');
+  // const worksheet = workbook.Sheets[sheetName];
+  // const data = XLSX.utils.sheet_to_json(worksheet);
+
+  // console.log('actual data',data)
+
+  // fs.readFile('./config.json','utf-8',(err,data) => {
+  //   // const parseddata = JSON.parse(JSON.stringify(data));
+  //   console.log('JSON data',typeof(data))
+  //   // owner = parseddata.assignedTo;
+  //   if(err) throw err;
+  //   // console.log(owner);
+  // })
 
 
   await axios
@@ -38,7 +48,7 @@ router.get("/", async (req, res, next) => {
       let actualData = [];
 
       data.forEach((item) => {
-        if (item.Owner == owner) {
+        if (item.Owner == jsondata.assignedTo) {
           actualData.push(item);
         }
       });
