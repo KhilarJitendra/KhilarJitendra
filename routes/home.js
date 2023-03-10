@@ -11,9 +11,11 @@ const axios = require("axios");
 
 router.get("/", async (req, res, next) => {
   
+  let owner = '';
 
   fs.readFile('./extractor-config.json','utf-8',(err,data) => {
-    const parseddata = json(data)
+    const parseddata = json(data);
+    owner = parseddata.assignedTo;
     console.log('file.',parseddata.assignedTo);
   })
 
@@ -34,7 +36,7 @@ router.get("/", async (req, res, next) => {
       let actualData = [];
 
       data.forEach((item) => {
-        if (item.Owner == "Jitendra") {
+        if (item.Owner == owner) {
           actualData.push(item);
         }
       });
