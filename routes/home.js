@@ -10,7 +10,7 @@ const axios = require("axios");
 
     
 let owner = '';
-  fs.readFileSync('./extractor-config.json','utf-8',(err,data) => {
+  fs.readFileSync('extractor-config.json','utf-8',(err,data) => {
     const parseddata = JSON.parse(data);
     owner = parseddata.assignedTo;
     console.log('file.',parseddata.assignedTo);
