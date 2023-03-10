@@ -17,7 +17,8 @@ router.get("/", async (req, res, next) => {
   fs.readFile('./config.json','utf-8',(err,data) => {
     const parseddata = JSON.parse(data);
     owner = parseddata.assignedTo;
-    console.log('file.',parseddata.assignedTo);
+    if(err) throw err;
+    console.log(owner);
   })
 
 
