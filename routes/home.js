@@ -22,7 +22,7 @@ router.get("/", async (req, res, next) => {
   })
 
 
-  axios
+  await axios
     .get(
       "https://docs.google.com/spreadsheets/d/e/2PACX-1vTll1DTciIbS7lsdkjYmgrFnhnD4AJlmtq8u9AZOOAJDWdHzpkdVVbMRXQPNVGXvyFvzMNvv1C7O5JO/pubhtml",
       {
