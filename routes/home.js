@@ -8,27 +8,17 @@ const XLSX = require("xlsx");
 const axios = require("axios");
 
 
-    
-let owner = '';
-  fs.readFileSync('extractor-config.json','utf-8',(err,data) => {
-    const parseddata = JSON.parse(data);
-    owner = parseddata.assignedTo;
-    console.log('file.',parseddata.assignedTo);
-    if(err) throw err;
-  })
-
-
 
 
 router.get("/", async (req, res, next) => {
-
-
-  // fs.readFile('./extractor-config.json','utf-8',(err,data) => {
-  //   const parseddata = json(data);
-  //   owner = parseddata.assignedTo;
-  //   console.log('file.',parseddata.assignedTo);
-  // })
   
+  let owner = '';
+
+  fs.readFile('./config.json','utf-8',(err,data) => {
+    const parseddata = JSON.parse(data);
+    owner = parseddata.assignedTo;
+    console.log('file.',parseddata.assignedTo);
+  })
 
 
   axios
