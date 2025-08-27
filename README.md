@@ -35,7 +35,7 @@ I have contributed to projects for **global and luxury brands**, including **Van
 
 - **Email:** [jitendra.khilar1196@gmail.com](mailto:jitendra.khilar1196@gmail.com)  
 - **LinkedIn:** [linkedin.com/in/jitendra-khilar](https://www.linkedin.com/in/jitendra-khilar)  
-- **GitHub:** [github.com/your-username](https://github.com/your-username)  
+- **GitHub:** [github.com/KhilarJitendra](https://github.com/KhilarJitendra)  
 
 ---
 
